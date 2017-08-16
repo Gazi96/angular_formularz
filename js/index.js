@@ -1,5 +1,3 @@
-"use strict"
-
 var app = angular.module('minmax',[
     'jcs-autoValidate'
 ]);
@@ -17,45 +15,33 @@ app.run([
     }
 ]);
 
+datapicker();
+
 app.controller('MinMaxCtrl', function($scope)
 {
     $scope.formModel = {};
-    $scope.onSubmit = function (valid)
+    $scope.onSubmit = function()
     {   
-        
-        if(valid)
-        {
-            console.log("I submitted this");
-            console.log($scope.formModel);
-        }
-        
-        else
-        {
-            console.log("Invalid form!")
-        }
-            
+        console.log("dziala");
+        console.log($scope.formModel);    
     }
 });
 
-$(function () 
+function datapicker()
 {
-    $('#datetimepicker2').datetimepicker({
-        locale: 'ru'
-    });
-});
+  var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+     if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
 
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("date").setAttribute("min", today); 
+}
 
-
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("date").setAttribute("min", today);
+  
