@@ -10,87 +10,97 @@
 <body>
     
     <div class="container" ng-controller="MinMaxCtrl">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-xs-12 ">
+                <form action="" ng-submit="onSubmit()" name="theForm" novalidate="novalidate">
 
-        <form action="" ng-submit="onSubmit()"
-            name="theForm"
-            novalidate="novalidate">
-                
-            <div class="form-group">
-                <label for="name" class="control-label">Nazwa odbiorcy</label>
-                <input type="text" 
-                class="form-control"
-                ng-model="formModel.name"
-                required="required"
-                id="name"
-                ng-maxlength="10"
-                ng-min-err-type="to young"
-                >
-                
-            </div>
+                    <div class="form-group">
+                        <label for="name" class="control-label">Nazwa odbiorcy</label>
+                        <input type="text" 
+                        class="form-control" 
+                        ng-model="formModel.name" required="required" 
+                        id="name" 
+                        maxlength="200" 
+                        required-err-type="required"
+                        >
+                    </div>
 
-            <div class="form-group"> 
-                <label for="email" class="control-label">Adres e-mail</label>
-                <input type="email" 
-                class="form-control"
-                ng-model="formModel.email"
-                id="email"
-                required="required"
-                name="email"
-                >
-             
-            </div>
-            
-            <div class="form-group">
-                <label for="username" class="control-label">Tytuł wiadomości</label>
-                <input type="text"
-                class="form-control"
-                ng-model="formModel.username"
-                required="required"
-                id="username">
-            </div>
-                           
-            <div class="form-group">
-                <label for="password" class="control-label">Treść wiadomości</label>
-                <input type="password" class="form-control" 
-                ng-model="formModel.password"
-                required="required" 
-                id="password">
-            </div>
-            
-            <div class="form-group">
-                <label for="date" class="control-label">Data</label>
-                <input type="datetime-local" class="form-control" 
-                ng-model="formModel.date"
-                required="required" 
-                id="date"
-                min='1899-01-01'>
-            </div>
-            
-            <div class="form-group">
-                <label for="time" class="control-label">Godzina</label>
-                <input type="time" class="form-control" 
-                ng-model="formModel.time"
-                required="required" 
-                id="time">
-            </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">Adres e-mail</label>
+                        <input type="email" 
+                        class="form-control"
+                         ng-model="formModel.email" id="email" 
+                         required="required" 
+                         name="email"
+                         required-err-type="required"
+                         >
+                    </div>
 
-            <div class="form-group">
-                <button class="btn btn-primary" ng-click="onSubmit()">Register</button>
-            </div>
-        
+                    <div class="form-group">
+                        <label for="title" class="control-label">Tytuł wiadomości</label>
+                        <input type="text"
+                         class="form-control" 
+                         ng-model="formModel.username" required="required" 
+                         id="title"
+                         maxlength="200" 
+                         required-err-type="required"
+                         >
+                    </div>
 
-        </form>
-        
+                    <div class="form-group">
+                        <label for="message" class="control-label">Treść wiadomości</label>
+                        <textarea 
+                        type="password"
+                        class="form-control" 
+                        ng-model="formModel.message" required="required" 
+                        required-err-type="required"
+                        id="message"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="control-label">Data</label>
+                        <input type="date" 
+                        class="form-control" 
+                        ng-model="formModel.date" required="required" 
+                        id="date" 
+                        min='2000-01-01'
+                        ng-min-err-type="max-length"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time" class="control-label">Godzina</label>
+                        <input type="time" class="form-control" ng-model="formModel.time" required="required" id="time">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="onSubmit()">Wyślij</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
     </div>
+    
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ru'
+                });
+            });
+    </script>
      
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
     
     <script src="angular-auto-validate-master/dist/jcs-auto-validate.min.js"></script>
     <script src="js/index.js"></script>
+    
+    <script src="bootstrap-datetimepicker-master/src/js/bootstrap-datetimepicker.js"></script>
     
 </body>
 </html>
