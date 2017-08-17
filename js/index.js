@@ -29,7 +29,7 @@ app.controller('MinMaxCtrl', function($scope,$http)
            $.ajax({
             url: "https://formspree.io/rafalgazda.mail@gmail.com", 
             method: "POST",
-            data: {message: "hello!"},
+            data: {message: formModel"},
             dataType: "json"
             });
     }
