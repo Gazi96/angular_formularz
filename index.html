@@ -22,11 +22,13 @@
     <div class="container" ng-controller="MinMaxCtrl">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-xs-12 ">
-                <form ng-submit="onSubmit()" name="theForm" novalidate="novalidate">
+                <form action="https://formspree.io/rafalgazda.mail@gmail.com"
+      method="POST" ng-submit="onSubmit()" name="theForm" novalidate="novalidate">
 
                     <div class="form-group">
                         <label for="name" class="control-label">Nazwa odbiorcy</label>
                         <input type="text" 
+                        name="name"
                         class="form-control" 
                         ng-model="formModel.name" required="required" 
                         id="name" 
@@ -38,6 +40,7 @@
                     <div class="form-group">
                         <label for="email" class="control-label">Adres e-mail</label>
                         <input type="email" 
+                        name="_replyto"
                         class="form-control"
                          ng-model="formModel.email" id="email" 
                          required="required" 
@@ -49,6 +52,7 @@
                     <div class="form-group">
                         <label for="title" class="control-label">Tytuł wiadomości</label>
                         <input type="text"
+                        name="title"
                          class="form-control" 
                          ng-model="formModel.username" required="required" 
                          id="title"
@@ -61,6 +65,7 @@
                         <label for="message" class="control-label">Treść wiadomości</label>
                         <textarea 
                         type="password"
+                        name="message"
                         class="form-control" 
                         ng-model="formModel.message" required="required" 
                         required-err-type="required"
@@ -71,6 +76,7 @@
                         <label for="date" class="control-label">Data</label>
                         <input type="date" 
                         class="form-control" 
+                        name="date"
                         ng-model="formModel.date" required="required" 
                         id="date" 
                         min='2000-01-01'
@@ -83,6 +89,7 @@
                         <input 
                         class="form-control datepicker"
                         ng-model="formModel.date2"  
+                        name="date"
                         type="date" 
                         id="date2"
                         required="required"
@@ -93,17 +100,19 @@
                     
                     <div id="timepicker-laptop" class="form-group">
                         <label for="time" class="control-label">Godzina</label>
-                        <input type="time" class="form-control" ng-model="formModel.time" required="required" id="time">
+                        <input type="time" name="time" class="form-control" ng-model="formModel.time" required="required" id="time">
                     </div>   
                     
                     <div id="timepicker-mobile" class="form-group">
                         <label for="time2" class="control-label">Godzina</label>
-                        <input type="time" class="form-control timepicker" ng-model="formModel.time2" required="required" id="time2">
+                        <input type="time" name="time" class="form-control timepicker" ng-model="formModel.time2" required="required" id="time2">
                     </div>                    
                                      
                     <div class="form-group">
                     <button id="button" class="btn btn-primary" ng-click="onSubmit()">Wyślij</button>
                     </div>
+                    
+                    <input type="submit" value="Send">
 
                 </form>
             </div>
