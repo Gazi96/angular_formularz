@@ -24,7 +24,6 @@ app.controller('MinMaxCtrl', function($scope,$http)
     $scope.onSubmit = function()
     {   
         console.log("I submitted this");
-        console.log($scope.formModel);
         
            $.ajax({
             url: "https://formspree.io/rafalgazda.mail@gmail.com", 
