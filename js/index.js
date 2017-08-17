@@ -23,31 +23,15 @@ app.controller('MinMaxCtrl', function($scope,$http)
     $scope.formModel = {};
     $scope.onSubmit = function()
     {   
-        $http.post({
-        "http://formspree.io/rafalgazda.mail@gmail.com",
-        method: "POST",
-        data: {"foo":"bar"}
-        }).success(function(formModel, status, headers, config) {
-        $scope.data = formModel;
-        }).error(function(data, status, headers, config) {
-        $scope.status = status;
-        });.com",
-        method: "POST",
-        data: {"foo":"bar"}
-        }).success(function(data, status, headers, config) {
-            $scope.data = data;
-        }).error(function(data, status, headers, config) {
-            $scope.status = status;
-        });
-        
-        console.log("dziala");
-        console.log($scope.formModel);    
+           $.ajax({
+            url: "https://formspree.io/rafalgazda.mail@gmail.com", 
+            method: "POST",
+            data: {message: "hello!"},
+            dataType: "json"
+            });
     }
-    
-    
-    
 });
-
+    
 function datapicker()
 {
   var today = new Date();
