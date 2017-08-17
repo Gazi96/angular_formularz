@@ -26,11 +26,14 @@ app.controller('MinMaxCtrl', function($scope,$http)
         console.log("I submitted this");
         console.log($scope.formModel);
         
-           $.ajax({
-            url: "https://formspree.io/rafalgazda.mail@gmail.com", 
-            method: "POST",
-            data: {formModel},
-            dataType: "json"
+           $http({
+                url: "http://formspree.io/rafalgazda.mail@gmail.com",
+                method: "POST",
+                data: {"foo":"bar"}
+            }).success(function(data, status, headers, config) {
+                $scope.data = data;
+            }).error(function(data, status, headers, config) {
+                $scope.status = status;
             });
     }
 });
