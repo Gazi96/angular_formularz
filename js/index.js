@@ -41,6 +41,8 @@ function datapicker()
         } 
 
     today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("date2").setAttribute("min", today); 
+    
     document.getElementById("date").setAttribute("min", today); 
 }
 

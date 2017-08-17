@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Walidacja formularza</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/style.css">
    
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      
-    
-    
+     <link rel="stylesheet" href="css/responsive.css">
+     
+    <link rel="stylesheet" href="pickadate/lib/themes/default.css" id="theme_base">
+    <link rel="stylesheet" href="pickadate/lib/themes/default.date.css" id="theme_date">
+    <link rel="stylesheet" href="pickadate/lib/themes/default.time.css" id="theme_time">
+     
 </head>
 <body>
     
     <div class="container" ng-controller="MinMaxCtrl">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-xs-12 ">
-                <form action="" ng-submit="onSubmit()" name="theForm" novalidate="novalidate">
+                <form ng-submit="onSubmit()" name="theForm" novalidate="novalidate">
 
                     <div class="form-group">
                         <label for="name" class="control-label">Nazwa odbiorcy</label>
@@ -59,7 +67,7 @@
                         id="message"></textarea>
                     </div>
 
-                    <div class="form-group">
+                    <div id="datepicker-laptop"class="form-group">
                         <label for="date" class="control-label">Data</label>
                         <input type="date" 
                         class="form-control" 
@@ -70,17 +78,32 @@
                         >
                     </div>
                     
-                    <div class="form-group">
-                        <label for="time" class="control-label">Godzina</label>
-                        <input type="time" class="form-control" ng-model="formModel.time" required="required" id="time">
+                    <div id="datepicker-mobile" class="form-group">
+                        <label for="date2" class="control-label">Data</label>
+                        <input 
+                        class="form-control datepicker"
+                        ng-model="formModel.date2"  
+                        type="date" 
+                        id="date2"
+                        required="required"
+                        min='2000-01-01'
+                        
+                        >
                     </div>
                     
-                    <input type="text" id="datetime">
-                
+                    <div id="timepicker-laptop" class="form-group">
+                        <label for="time" class="control-label">Godzina</label>
+                        <input type="time" class="form-control" ng-model="formModel.time" required="required" id="time">
+                    </div>   
+                    
+                    <div id="timepicker-mobile" class="form-group">
+                        <label for="time2" class="control-label">Godzina</label>
+                        <input type="time" class="form-control timepicker" ng-model="formModel.time2" required="required" id="time2">
+                    </div>                    
+                                     
                     <div class="form-group">
                     <button class="btn btn-primary" ng-click="onSubmit()">Wyślij</button>
                     </div>
-
 
                 </form>
             </div>
@@ -97,11 +120,18 @@
     
     <script src="angular-auto-validate-master/dist/jcs-auto-validate.min.js"></script>
     
-    <script src="pickadate.js-3.5.6/lib/picker.date.js"></script>
+    <script src="pickadate/lib/picker.js"></script>
+    <script src="pickadate/lib/picker.date.js"></script>
+    <script src="pickadate.js-3.5.6/lib/picker.time.js"></script>
     
     <script src="js/index.js"></script>
     
+    <script type="text/javascript">
+        $('.datepicker').pickadate();
+    </script>
  
-    
+    <script type="text/javascript">
+        $('.timepicker').pickatime()
+    </script>
 </body>
 </html>

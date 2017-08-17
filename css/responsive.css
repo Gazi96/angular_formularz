@@ -1,0 +1,19 @@
+@media screen and (max-width: 800px)
+{
+    #datepicker-mobile, #timepicker-mobile
+    {
+        display: block;
+        
+    }
+    
+    #datepicker-laptop, #timepicker-laptop
+    {
+        display: none;
+        
+    }
+    
+    body
+    {
+        background-color: black;
+    }
+}
